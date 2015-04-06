@@ -1,0 +1,4 @@
+Peano
+=====
+
+Haskell natural numbers.
