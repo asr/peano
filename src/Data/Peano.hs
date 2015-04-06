@@ -13,8 +13,7 @@
 {-# LANGUAGE UnicodeSyntax #-}
 
 module Data.Peano
-  ( (∸)
-  , int2nat
+  ( int2nat
   , Nat(Z, S)
   , nat2int
   )
@@ -86,10 +85,6 @@ instance Num Nat where
   fromInteger n = if n < 0
                   then error "fromInteger: negative value"
                   else S (fromInteger (n - 1))
-
--- | Truncated subtraction.
-(∸) ∷ Nat → Nat → Nat
-(∸) = (-)
 
 instance Real Nat where
   toRational = toRational . nat2integer
