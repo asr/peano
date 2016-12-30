@@ -37,8 +37,6 @@ test-suite internal
 
   build-depends:
     base >= 4.5.0.0 && < 4.10
-    , Cabal >= 1.18.1.5 && < 1.26
-    , cabal-test-quickcheck >= 0.1.2 && < 0.2
     , peano >= 0.1 && < 0.2
     , QuickCheck >= 2.8 && < 2.9
 
