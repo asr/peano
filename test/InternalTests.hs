@@ -1,6 +1,6 @@
 {-# LANGUAGE UnicodeSyntax #-}
 
-module Tests where
+module InternalTests where
 
 import Data.Peano                        ( Nat )
 import Distribution.TestSuite.QuickCheck ( Test, testProperty )
