@@ -8,7 +8,7 @@ license-file:  LICENSE
 maintainer:    Andrés Sicard-Ramírez <asr@eafit.edu.co>
 category:      Data
 synopsis:      Peano natural numbers
-tested-with:   GHC == 7.10.2
+tested-with:   GHC == 8.0.1
 description:   Peano natural numbers and some instances.
 
 library
@@ -16,20 +16,18 @@ library
   hs-source-dirs: src
 
   build-depends:
-    base         >= 4.5.0.0 && < 4.9
+    base         >= 4.5.0.0 && < 4.10
     , QuickCheck >= 2.8 && < 2.9
 
-  if impl(ghc >= 7.6)
+  if impl(ghc >= 8.0)
      ghc-options:
        -Wall
-       -fwarn-auto-orphans
-       -fwarn-identities
-       -fwarn-incomplete-record-updates
-       -fwarn-incomplete-uni-patterns
-       -fwarn-missing-import-lists
-       -fwarn-missing-local-sigs
-       -fwarn-monomorphism-restriction
-       -fwarn-tabs
+       -Widentities
+       -Wincomplete-record-updates
+       -Wincomplete-uni-patterns
+       -Wmissing-import-lists
+       -Wmissing-local-signatures
+       -Wmonomorphism-restriction
        -Werror
 
 test-suite test1
@@ -38,24 +36,19 @@ test-suite test1
   test-module:    Tests
 
   build-depends:
-    base >= 4.5.0.0 && < 4.9
+    base >= 4.5.0.0 && < 4.10
     , Cabal >= 1.18.1.5 && < 1.26
     , cabal-test-quickcheck >= 0.1.2 && < 0.2
     , peano >= 0.1 && < 0.2
     , QuickCheck >= 2.8 && < 2.9
 
-  if impl(ghc >= 7.6)
+  if impl(ghc >= 8.0)
      ghc-options:
        -Wall
-       -fwarn-identities
-       -fwarn-incomplete-record-updates
-       -fwarn-incomplete-uni-patterns
-       -fwarn-missing-import-lists
-       -fwarn-missing-local-sigs
-       -fwarn-monomorphism-restriction
-       -fwarn-tabs
+       -Widentities
+       -Wincomplete-record-updates
+       -Wincomplete-uni-patterns
+       -Wmissing-import-lists
+       -Wmissing-local-signatures
+       -Wmonomorphism-restriction
        -Werror
-
-  -- The following flag generates warnings with GHC 7.10.1.
-  if impl(ghc < 7.10)
-     ghc-options: -fwarn-auto-orphans
