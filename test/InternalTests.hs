@@ -1,10 +1,17 @@
 {-# LANGUAGE UnicodeSyntax #-}
 
-module InternalTests where
+module Main where
 
-import Data.Peano      ( Nat )
-import System.Exit     ( exitFailure, exitSuccess )
-import Test.QuickCheck ( (==>), Property, quickCheckResult, Result )
+import Data.Peano  ( Nat )
+import System.Exit ( exitFailure, exitSuccess )
+
+import Test.QuickCheck
+  ( (==>)
+  , Property
+  , quickCheckResult
+  , Result(Success)
+  , Testable
+  )
 
 ------------------------------------------------------------------------------
 -- Auxiliary functions
@@ -49,11 +56,11 @@ prop_div_quot n d = n >= 0 && d > 0 ==> n `div` d == n `quot` d
 ------------------------------------------------------------------------------
 -- All tests
 
-tests :: IO Bool
-tests = runTests "Internal Tests"
+allTests :: IO Bool
+allTests = runTests "Internal Tests"
   [ quickCheck' prop_div_quot
   , quickCheck' prop_signum
   ]
 
 main ∷ IO ()
-main = ifM tests exitSuccess exitFailure
+main = ifM allTests exitSuccess exitFailure

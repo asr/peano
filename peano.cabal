@@ -31,9 +31,9 @@ library
        -Werror
 
 test-suite internal
-  type:           detailed-0.9
+  type:           exitcode-stdio-1.0
   hs-source-dirs: test
-  test-module:    InternalTests
+  main-is:        InternalTests.hs
 
   build-depends:
     base >= 4.5.0.0 && < 4.10
