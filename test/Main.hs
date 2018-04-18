@@ -1,10 +1,9 @@
 {-# LANGUAGE UnicodeSyntax #-}
 
-module InternalTests where
+module Main ( main ) where
 
-import Data.Peano                        ( PeanoNat )
-import Distribution.TestSuite.QuickCheck ( Test, testProperty )
-import Test.QuickCheck                   ( (==>), Property )
+import Data.Peano      ( PeanoNat )
+import Test.QuickCheck ( (==>), Property, quickCheck )
 
 -- From:
 -- https://downloads.haskell.org/~ghc/7.8.4/docs/html/libraries/base-4.7.0.2/Prelude.html#v:signum
@@ -16,7 +15,7 @@ prop_signum x = abs x * signum x == x
 prop_div_quot ∷ PeanoNat → PeanoNat → Property
 prop_div_quot n d = n >= 0 && d > 0 ==> n `div` d == n `quot` d
 
-tests ∷ IO [Test]
-tests = return [ testProperty "signum" prop_signum
-               , testProperty "div_quot" prop_div_quot
-               ]
+main ∷ IO ()
+main = do
+  quickCheck prop_signum
+  quickCheck prop_div_quot
