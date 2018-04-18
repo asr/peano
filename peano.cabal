@@ -20,15 +20,14 @@ library
     , QuickCheck >= 2.8 && < 2.9
 
   if impl(ghc >= 8.0)
-     ghc-options:
-       -Wall
-       -Widentities
-       -Wincomplete-record-updates
-       -Wincomplete-uni-patterns
-       -Wmissing-import-lists
-       -Wmissing-local-signatures
-       -Wmonomorphism-restriction
-       -Werror
+     ghc-options: -Wall
+                  -Widentities
+                  -Wincomplete-record-updates
+                  -Wincomplete-uni-patterns
+                  -Wmissing-import-lists
+                  -Wmissing-local-signatures
+                  -Wmonomorphism-restriction
+                  -Werror
 
 test-suite internal
   type:           detailed-0.9
@@ -43,12 +42,11 @@ test-suite internal
     , QuickCheck >= 2.8 && < 2.9
 
   if impl(ghc >= 8.0)
-     ghc-options:
-       -Wall
-       -Widentities
-       -Wincomplete-record-updates
-       -Wincomplete-uni-patterns
-       -Wmissing-import-lists
-       -Wmissing-local-signatures
-       -Wmonomorphism-restriction
-       -Werror
+     ghc-options: -Wall
+                  -Widentities
+                  -Wincomplete-record-updates
+                  -Wincomplete-uni-patterns
+                  -Wmissing-import-lists
+                  -Wmissing-local-signatures
+                  -Wmonomorphism-restriction
+                  -Werror
