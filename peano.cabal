@@ -17,7 +17,7 @@ library
 
   build-depends:
     base         >= 4.5.0.0 && < 4.11
-    , QuickCheck >= 2.8 && < 2.9
+    , QuickCheck == 2.10.1
 
   if impl(ghc >= 8.2)
      ghc-options: -Wall
@@ -42,7 +42,7 @@ test-suite internal
     , Cabal >= 1.18.1.5 && < 2.1
     , cabal-test-quickcheck >= 0.1.2 && < 0.2
     , peano >= 0.1 && < 0.2
-    , QuickCheck >= 2.8 && < 2.9
+    , QuickCheck == 2.10.1
 
   if impl(ghc >= 8.2)
      ghc-options: -Wall
