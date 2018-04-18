@@ -19,14 +19,17 @@ library
     base         >= 4.5.0.0 && < 4.11
     , QuickCheck >= 2.8 && < 2.9
 
-  if impl(ghc >= 8.0)
+  if impl(ghc >= 8.2)
      ghc-options: -Wall
+                  -Wcpp-undef
                   -Widentities
                   -Wincomplete-record-updates
                   -Wincomplete-uni-patterns
                   -Wmissing-import-lists
                   -Wmissing-local-signatures
                   -Wmonomorphism-restriction
+                  -Wsimplifiable-class-constraints
+                  -Wunbanged-strict-patterns
                   -Werror
 
 test-suite internal
@@ -41,12 +44,15 @@ test-suite internal
     , peano >= 0.1 && < 0.2
     , QuickCheck >= 2.8 && < 2.9
 
-  if impl(ghc >= 8.0)
+  if impl(ghc >= 8.2)
      ghc-options: -Wall
+                  -Wcpp-undef
                   -Widentities
                   -Wincomplete-record-updates
                   -Wincomplete-uni-patterns
                   -Wmissing-import-lists
                   -Wmissing-local-signatures
                   -Wmonomorphism-restriction
+                  -Wsimplifiable-class-constraints
+                  -Wunbanged-strict-patterns
                   -Werror
