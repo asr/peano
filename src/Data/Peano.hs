@@ -14,7 +14,7 @@
 
 module Data.Peano
   ( int2nat
-  , Nat(Z, S)
+  , PeanoNat(Z, S)
   , nat2int
   )
 where
@@ -38,29 +38,29 @@ mapTuple f (a1, a2) = (f a1, f a2)
 -- first.
 
 -- | Peano natural numbers.
-data Nat = Z | S Nat
-         deriving (Eq, Ord)
+data PeanoNat = Z | S PeanoNat
+              deriving (Eq, Ord)
 
-nat2integer ∷ Nat → Integer
+nat2integer ∷ PeanoNat → Integer
 nat2integer Z     = 0
 nat2integer (S n) = 1 + nat2integer n
 
-nat2int ∷ Nat → Int
+nat2int ∷ PeanoNat → Int
 nat2int Z     = 0
 nat2int (S n) = 1 + nat2int n
 
-int2nat ∷ Int → Nat
+int2nat ∷ Int → PeanoNat
 int2nat n | n < 0 = error "int2Nat: negative argument"
 int2nat 0         = Z
 int2nat n         = S $ int2nat (n - 1)
 
-integer2nat ∷ Integer → Nat
+integer2nat ∷ Integer → PeanoNat
 integer2nat n | n < 0 = error "integer2Nat: negative argument"
 integer2nat 0         = Z
 integer2nat n         = S $ integer2nat (n - 1)
 
 -- Adapted from http://byorgey.wordpress.com/2010/11/.
-instance Num Nat where
+instance Num PeanoNat where
   Z   + n = n
   S m + n = S (m + n)
 
@@ -86,10 +86,10 @@ instance Num Nat where
                   then error "fromInteger: negative value"
                   else S (fromInteger (n - 1))
 
-instance Real Nat where
+instance Real PeanoNat where
   toRational = toRational . nat2integer
 
-instance Enum Nat where
+instance Enum PeanoNat where
   fromEnum = fromEnum . nat2int
 
   toEnum 0 = Z
@@ -97,7 +97,7 @@ instance Enum Nat where
              then S (toEnum (n - 1))
              else error "toEnum: negative value"
 
-instance Integral Nat where
+instance Integral PeanoNat where
   quotRem m n = mapTuple integer2nat $ quotRem (nat2integer m) (nat2integer n)
 
   -- TODO (07 July 2014). Why is this definition necessary?
@@ -105,8 +105,8 @@ instance Integral Nat where
 
   toInteger = nat2integer
 
-instance Show Nat where
+instance Show PeanoNat where
   show = show . nat2integer
 
-instance Arbitrary Nat where
+instance Arbitrary PeanoNat where
   arbitrary = arbitrarySizedNatural
