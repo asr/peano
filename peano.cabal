@@ -15,9 +15,8 @@ library
   exposed-modules: Data.Peano
   hs-source-dirs: src
 
-  build-depends:
-    base         >= 4.5.0.0 && < 4.11
-    , QuickCheck == 2.10.1
+  build-depends:  base >= 4.5.0.0 && < 4.11
+                , QuickCheck >= 2.10.1 && < 2.12
 
   if impl(ghc >= 8.2)
      ghc-options: -Wall
@@ -39,7 +38,7 @@ test-suite internal
 
   build-depends:  base >= 4.5.0.0 && < 4.11
                 , peano
-                , QuickCheck == 2.10.1
+                , QuickCheck >= 2.10.1 && < 2.12
 
   if impl(ghc >= 8.2)
      ghc-options: -Wall
