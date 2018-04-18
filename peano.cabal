@@ -8,7 +8,7 @@ license-file:  LICENSE
 maintainer:    Andrés Sicard-Ramírez <asr@eafit.edu.co>
 category:      Data
 synopsis:      Peano natural numbers
-tested-with:   GHC == 8.0.2
+tested-with:   GHC == 8.2.2
 description:   Peano natural numbers and some instances.
 
 library
@@ -16,7 +16,7 @@ library
   hs-source-dirs: src
 
   build-depends:
-    base         >= 4.5.0.0 && < 4.10
+    base         >= 4.5.0.0 && < 4.11
     , QuickCheck >= 2.8 && < 2.9
 
   if impl(ghc >= 8.0)
@@ -36,8 +36,8 @@ test-suite internal
   test-module:    InternalTests
 
   build-depends:
-    base >= 4.5.0.0 && < 4.10
-    , Cabal >= 1.18.1.5 && < 1.26
+    base >= 4.5.0.0 && < 4.11
+    , Cabal >= 1.18.1.5 && < 2.1
     , cabal-test-quickcheck >= 0.1.2 && < 0.2
     , peano >= 0.1 && < 0.2
     , QuickCheck >= 2.8 && < 2.9
